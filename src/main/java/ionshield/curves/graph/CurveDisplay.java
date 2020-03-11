@@ -192,11 +192,14 @@ public class CurveDisplay extends JPanel {
     
     private void drawLines(Graphics g) {
         g.setColor(LINE_COLOR);
-        lines.stream().map(l -> new LineDouble(valueToGraph(l.a), valueToGraph(l.b))).forEach(l -> g.drawLine((int)Math.round(l.a.getX()), (int)Math.round(l.a.getY()), (int)Math.round(l.b.getX()), (int)Math.round(l.b.getY())));
+        //lines.stream().map(l -> new LineDouble(valueToGraph(l.a), valueToGraph(l.b))).forEach(l -> g.drawLine((int)Math.round(l.a.getX()), (int)Math.round(l.a.getY()), (int)Math.round(l.b.getX()), (int)Math.round(l.b.getY())));
     
+        lines.stream().map(l -> new LineDouble(valueToGraph(l.a), valueToGraph(l.b))).map(l -> new Line((int)Math.round(l.a.getX()), (int)Math.round(l.a.getY()), (int)Math.round(l.b.getX()), (int)Math.round(l.b.getY()))).forEach(l -> GraphUtils.drawLine(l, g, LINE_COLOR));
+        
         if (displayTangents) {
             g.setColor(TANGENT_LINE_COLOR);
-            points.stream().map(p -> new LineDouble(valueToGraph(p.point), valueToGraph(p.getTangentLocation(1)))).forEach(l -> g.drawLine((int) Math.round(l.a.getX()), (int) Math.round(l.a.getY()), (int) Math.round(l.b.getX()), (int) Math.round(l.b.getY())));
+            //points.stream().map(p -> new LineDouble(valueToGraph(p.point), valueToGraph(p.getTangentLocation(1)))).forEach(l -> g.drawLine((int) Math.round(l.a.getX()), (int) Math.round(l.a.getY()), (int) Math.round(l.b.getX()), (int) Math.round(l.b.getY())));
+            points.stream().map(p -> new LineDouble(valueToGraph(p.point), valueToGraph(p.getTangentLocation(1)))).map(l -> new Line((int)Math.round(l.a.getX()), (int)Math.round(l.a.getY()), (int)Math.round(l.b.getX()), (int)Math.round(l.b.getY()))).forEach(l -> GraphUtils.drawLine(l, g, TANGENT_LINE_COLOR));
         }
     }
     
