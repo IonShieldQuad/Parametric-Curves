@@ -1,10 +1,12 @@
 package ionshield.curves.core;
 
 
+import com.bulenkov.darcula.DarculaLaf;
 import ionshield.curves.graph.CurveDisplay;
 import ionshield.curves.math.*;
 
 import javax.swing.*;
+import javax.swing.plaf.basic.BasicLookAndFeel;
 
 public class MainWindow {
     private JPanel rootPanel;
@@ -94,6 +96,12 @@ public class MainWindow {
     
     
     public static void main(String[] args) {
+        BasicLookAndFeel darcula = new DarculaLaf();
+        try {
+            UIManager.setLookAndFeel(darcula);
+        } catch (UnsupportedLookAndFeelException e) {
+            e.printStackTrace();
+        }
         JFrame frame = new JFrame(TITLE);
         MainWindow gui = new MainWindow();
         frame.setContentPane(gui.rootPanel);

@@ -13,7 +13,6 @@ public class CurveDisplay extends JPanel {
     private static final int MARGIN_X = 50;
     private static final int MARGIN_Y = 50;
     private static final double EXTRA_AMOUNT = 0.0;
-    private static final Color GRID_COLOR = Color.GRAY;
     private static final Color POINT_COLOR = new Color(0xffffff);
     private static final Color POINT_TANGENT_COLOR = new Color(0x22bbff);
     private static final Color POINT_SELECTED_COLOR = new Color(0xff0000);
@@ -140,7 +139,7 @@ public class CurveDisplay extends JPanel {
     
     
     private void drawGrid(Graphics g) {
-        g.setColor(GRID_COLOR);
+        g.setColor(getForeground());
         
         double dx = (getWidth() - MARGIN_X * 2) / (double)resolution;
         double dy = (getHeight() - MARGIN_Y * 2) / (double)resolution;

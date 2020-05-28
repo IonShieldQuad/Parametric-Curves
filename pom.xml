@@ -20,4 +20,21 @@
             </plugin>
         </plugins>
     </build>
+
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/com.bulenkov/darcula -->
+        <dependency>
+            <groupId>com.bulenkov</groupId>
+            <artifactId>darcula</artifactId>
+            <version>2018.2</version>
+        </dependency>
+    </dependencies>
+
+    <repositories>
+        <repository>
+            <id>spring-plugins</id>
+            <name>Spring Plugins</name>
+            <url>https://repo.spring.io/plugins-release/</url>
+        </repository>
+    </repositories>
 </project>
